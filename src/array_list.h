@@ -1,12 +1,14 @@
 const int STARTING_CAPACITY = 10;
-struct ArrayList {
+
+typedef struct ArrayList {
   int current_capacity;
   int current_size;
   int *data;
+} ArrayList;
 
-  void add(ArrayList *list, int value);
-  int get(ArrayList *list, int index);
-  void remove(ArrayList *list, int index);
-  void clear(ArrayList *list);
-  int size(ArrayList *list);
-};
+struct ArrayList *NewArrayList();
+int get(struct ArrayList *list, int index);
+int pop(struct ArrayList *list);
+void print(struct ArrayList *list);
+int push(struct ArrayList *list, int value);
+void updateAt(struct ArrayList *list, int index, int value);
