@@ -4,6 +4,14 @@ This is a collection of data structures implemented in C. The goal is to recreat
 
 ## Array List
 
+## Switching Branches (old git)
+
+1. `git checkout -b name_of_branch`
+
+OR if branch already exists
+
+2. `git checkout name_of_branch`
+
 ## Commiting to GitHub
 
 1. MAKE SURE YOU ARE IN THE RIGHT BRANCH
