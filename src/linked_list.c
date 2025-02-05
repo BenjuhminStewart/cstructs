@@ -12,11 +12,11 @@ struct ListNode *NewListNode(int val){
 }
 
 
-void append(struct ListNode **head, int val){
+void append_node(struct ListNode **head, int val){
     struct ListNode *node = NewListNode(val);
     struct ListNode *temp = *head;
     if(temp==NULL){
-        prepend(head,val);
+        prepend_node(head,val);
         return;
     }
     while(temp->next != NULL){
@@ -26,13 +26,15 @@ void append(struct ListNode **head, int val){
 
 }
 
-void behead(struct ListNode **head){
-
+void behead_node(struct ListNode **head){
+    struct ListNode *temp = *head;
+    *head = temp->next;
+    free(temp);
 }
 
-void insert(struct ListNode **head, int val, int index){
+void insert_node(struct ListNode **head, int index, int val){
     if (index==0){
-        prepend(head,val);
+        prepend_node(head,val);
         return;
     }
    
@@ -40,7 +42,7 @@ void insert(struct ListNode **head, int val, int index){
     int i = 0;
     struct ListNode *temp = *head;
     while(i<index-1){
-        if(temp != NULL){
+        if(temp == NULL){
             printf("ERROR: Index out of bounds");
             free (node);
             exit(1);
@@ -52,26 +54,80 @@ void insert(struct ListNode **head, int val, int index){
     temp->next = node;
 }
 
-void pop(struct ListNode **head){
-
+int length_node(struct ListNode **head){
+    int len = 0;
+    struct ListNode *temp = *head;
+    while(temp !=NULL){
+        len++;
+        temp = temp->next;
+    }
+    return len;
 }
 
-void prepend(struct ListNode **head, int val){
+void pop_node(struct ListNode **head){
+    struct ListNode *temp = *head;\
+    while(temp->next->next!=NULL){
+        temp=temp->next;
+    }
+    temp->next = NULL;
+    free(temp->next);
+}
+
+void prepend_node(struct ListNode **head, int val){
     struct ListNode *node = NewListNode(val);
-    struct ListNode *temp = *head;
-    node->next = temp;
-    head = node;
+    node->next = *head;
+    *head = node;
+    
 }
 
-void print(struct ListNode **head){
+void print_node(struct ListNode **head){
     struct ListNode *temp = *head;
-    while (temp->next != NULL){
+    while (temp != NULL){
         printf("%d -> " , temp->value);
+        temp = temp->next;
     }
     printf("NULL\n");
 
 }
 
-void removeNode(struct ListNode **head, int index){
+void remove_node(struct ListNode **head, int index){
+    if (index==0){
+        behead_node(head);
+        return;
+    }
+   
+    int i = 0;
+    struct ListNode *temp = *head;
+    while(i<index-1){
+        if(temp == NULL){
+            printf("ERROR: Index out of bounds");
+            exit(1);
+        }
+        temp = temp->next;
+        i++;
+    }
+    struct ListNode *rep = temp->next;
 
+    temp->next = rep->next;
+    free(rep);
+    
+}
+// struct ListNode reverse_node(struct ListNode **head)
+// {
+
+// }
+
+void reverse_node(struct ListNode **head){
+    struct ListNode *prev = NULL;
+    struct ListNode *itr = *head;
+    struct ListNode *cur = *head;
+   
+    while (itr!= NULL){
+        itr = itr->next;
+        cur->next = prev;
+        prev = cur;
+        cur = itr;
+    }
+    
+    *head = prev;
 }

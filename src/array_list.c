@@ -21,7 +21,7 @@ int push(struct ArrayList *list, int value) {
   return list->data[list->current_size - 1];
 }
 
-int pop(struct ArrayList *list) {
+int pop_val(struct ArrayList *list) {
   if (list->current_size == 0) {
     printf("ERROR: Trying to pop from a list with no elements\n");
     exit(1);
