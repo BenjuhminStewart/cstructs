@@ -1,4 +1,4 @@
-const int STARTING_CAPACITY = 10;
+const int STARTING_CAPACITY_ARRAYLIST = 10;
 
 typedef struct ArrayList {
   int current_capacity;

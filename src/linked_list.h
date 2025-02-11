@@ -13,5 +13,4 @@ void pop_node(struct ListNode **head);
 void prepend_node(struct ListNode **head, int val);
 void print_node(struct ListNode **head);
 void remove_node(struct ListNode **head, int index);
-// struct ListNode reverse_node(struct ListNode **head);
 void reverse_node(struct ListNode **head);
