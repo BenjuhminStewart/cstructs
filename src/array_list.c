@@ -6,9 +6,9 @@
 
 struct ArrayList *NewArrayList() {
   struct ArrayList *list = malloc(sizeof(struct ArrayList));
-  list->data = malloc(sizeof(int) * STARTING_CAPACITY);
+  list->data = malloc(sizeof(int) * STARTING_CAPACITY_ARRAYLIST);
   list->current_size = 0;
-  list->current_capacity = STARTING_CAPACITY;
+  list->current_capacity = STARTING_CAPACITY_ARRAYLIST;
   return list;
 }
 
