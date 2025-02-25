@@ -112,12 +112,12 @@ void test_searches(int max_n) {
   }
 }
 
-
 int main() {
   
   int MAX_N = 100000000;
   time_bubble_sort(MAX_N/1000);
   test_searches(MAX_N);
   time_quicksort(MAX_N);
+
   return 0;
 }
