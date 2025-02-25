@@ -2,3 +2,11 @@
 *.Makefile
 Makefile
 makefile
+
+.\main.exe
+main.exe
+./main.exe
+./main
+.\main
+
+.vscode
